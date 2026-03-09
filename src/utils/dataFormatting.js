@@ -1,6 +1,12 @@
 import { teams, palette } from "../data/data";
 
 const members = teams.flatMap((t) => t.members);
+const mapMembersToBubble = (member) => ({
+  x: member.km,
+  y: member.points,
+  r: 5,
+  name: member.name,
+});
 
 export function getBarChartData() {
   return {
@@ -9,7 +15,7 @@ export function getBarChartData() {
       {
         label: "points",
         data: teams.map((team) =>
-          team.members.reduce((a, c) => (a += c.points), 0),
+          team.members.reduce((a, c) => a + c.points, 0),
         ),
         backgroundColor: palette[5],
         yAxisID: "y",
@@ -17,7 +23,7 @@ export function getBarChartData() {
       {
         label: "distance",
         data: teams.map((team) =>
-          team.members.reduce((a, c) => (a += c.km), 0).toFixed(),
+          Math.round(team.members.reduce((a, c) => a + c.km, 0)),
         ),
         backgroundColor: palette[8],
         yAxisID: "y1",
@@ -52,12 +58,7 @@ export function getBubbleChartData(groupBy) {
         label: team.name,
         backgroundColor: palette[i % palette.length],
         borderWidth: 0,
-        data: team.members.map((m) => ({
-          x: m.km,
-          y: m.points,
-          r: 5,
-          name: m.name,
-        })),
+        data: team.members.map(mapMembersToBubble),
       })),
     };
   } else {
@@ -67,17 +68,13 @@ export function getBubbleChartData(groupBy) {
           label: "M",
           backgroundColor: palette[5],
           borderWidth: 0,
-          data: members
-            .filter((m) => m.gender === "M")
-            .map((m) => ({ x: m.km, y: m.points, r: 5, name: m.name })),
+          data: members.filter((m) => m.gender === "M").map(mapMembersToBubble),
         },
         {
           label: "Z",
           backgroundColor: palette[8],
           borderWidth: 0,
-          data: members
-            .filter((m) => m.gender === "Z")
-            .map((m) => ({ x: m.km, y: m.points, r: 5, name: m.name })),
+          data: members.filter((m) => m.gender === "Z").map(mapMembersToBubble),
         },
       ],
     };
