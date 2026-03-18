@@ -10,7 +10,8 @@ import {
 } from "chart.js";
 import { chartRegistry } from "./utils/chartRegistry";
 import "./App.css";
-import Filter from "./Filter/Filter";
+import Filter from "./components/Filter/Filter";
+import Splash from "./components/Splash/Splash";
 
 Chart.register(
   LinearScale,
@@ -22,6 +23,7 @@ Chart.register(
 );
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
   const [chartType, setChartType] = useState(null);
   const [groupBy, setGroupBy] = useState(null);
 
@@ -36,6 +38,7 @@ function App() {
 
   return (
     <div>
+      {showSplash && <Splash onFinish={() => setShowSplash(false)} />}
       <Filter onChartChange={handleChartChange}></Filter>
       <div className="container">
         {SelectedChart && (
