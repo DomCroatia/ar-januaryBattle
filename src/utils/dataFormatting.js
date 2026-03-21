@@ -8,6 +8,8 @@ const mapMembersToBubble = (member) => ({
   name: member.name,
 });
 
+export { teams };
+
 export function getBarChartData() {
   return {
     labels: teams.map((team) => team.name),
