@@ -1,0 +1,23 @@
+.team {
+  position: relative;
+  height: fit-content;
+  padding: 0.25rem;
+
+  .list {
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    width: max-content;
+    text-align: start;
+    list-style: none;
+
+    li {
+      padding: 0.2rem 0.5rem;
+      background-color: color-mix(in oklab, black 70%, white 30%);
+    }
+  }
+
+  .stats {
+    padding-left: 0.5rem;
+  }
+}

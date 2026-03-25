@@ -8,6 +8,7 @@
   inset: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 999;
 
   opacity: 1;
   transition: opacity 1000ms ease;

@@ -37,16 +37,6 @@ function Filter({ onChartChange }) {
         />
         <label htmlFor="bubbleTeams">Bubble (teams)</label>
       </div>
-      {/* <div>
-        <input
-          type="radio"
-          name="chart"
-          id="pieChart"
-          value="pie"
-          onChange={handleChartChange}
-        />
-        <label htmlFor="pieChart">Pie (team)</label>
-      </div> */}
     </div>
   );
 }

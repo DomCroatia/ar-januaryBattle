@@ -773,7 +773,7 @@ export const teams = [
 
 export const palette = [
   "#000000",
-  "#004949",
+  "#9EC1A3",
   "#009292",
   "#FF6DB6",
   "#490092",
