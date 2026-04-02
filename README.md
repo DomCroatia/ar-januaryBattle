@@ -1,4 +1,4 @@
-# ar-januaryBattle
+# ar-januaryBattle by adidas Runners 
 
 I created this project to visualize data from January Battle (JB) collected during January 2026 competition hosted by adidas runners Zagreb. 
 
